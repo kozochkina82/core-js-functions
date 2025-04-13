@@ -18,7 +18,8 @@
  *
  */
 function getCurrentFunctionName() {
-  throw new Error('Not implemented');
+  const name = 'getCurrentFunctionName';
+  return name;
 }
 
 /**
@@ -32,8 +33,11 @@ function getCurrentFunctionName() {
  *   getFunctionBody(hiHello) => "function hiHello() { console.log('hello world'); }"
  *
  */
-function getFunctionBody(/* func */) {
-  throw new Error('Not implemented');
+function getFunctionBody(func) {
+  if (typeof func !== 'function') {
+    return ''; // или return null;
+  }
+  return func.toString();
 }
 
 /**
@@ -50,10 +54,14 @@ function getFunctionBody(/* func */) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  const array = [];
+  for (let i = 0; i < funcs.length; i += 1) {
+    const func = funcs[i];
+    array.push(func.length);
+  }
+  return array;
 }
-
 /**
  * Returns the math power function with the specified exponent
  *
@@ -70,8 +78,14 @@ function getArgumentsCount(/* funcs */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  const result = function Pow(power) {
+    if (typeof power !== 'number') {
+      return '';
+    }
+    return power ** exponent;
+  };
+  return result;
 }
 
 /**
